@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="js_external.js"></script>
+
+
+  <title>Progetto Booking</title>
+
+<!--styling the Form-->
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+
+
+body {
+    background-image: url("bb2.jpg");
+     background-attachment: fixed;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     width: 100%;
+     height: 100%;
+}
+
+
+#wrapper {
+  width: 30%;
+  margin: 0 auto;
+  padding: 4%;
+  padding-top: 15%;
+  font-family: 'Fredericka the Great', cursive;
+  color: white;
+
+}
+form {
+  margin: 30px auto;
+}
+.textInput {
+  border: none;
+  height: 28px;
+  margin: 2px;
+  border: 1px solid #6B7363;
+  font-size: 1.2em;
+  font-family: 'Fredericka the Great', cursive;
+  padding: 5px;
+  width: 95%;
+}
+.textInput:focus {
+  outline: none;
+}
+.btn {
+  width: 98.6%;
+  border: 1px solid orange;
+  margin-top: 5px;
+  color: white;
+  background-color: grey;
+  border-radius: 5px;
+  padding: 12px;
+  font-family: 'Fredericka the Great', cursive;
+
+}
+
+.btn:hover {
+      opacity: 0.7;
+  }
+</style>
+
+</head>
+
+
+<body>
+  <!--page header-->
+
+  <header>
+    <div class="container">
+
+      <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+
+      <nav>
+        <ul>
+          <li> <a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="find.html">Find Us</a></li>
+
+        </ul>
+      </nav>
+  </div>
+
+
+  </header>
+  <!--Booking Form-->
+
+  <div id="wrapper">
+     <form method="POST" action="index.php" onsubmit="return Validate()" name="vform" >
+      <div id="username_div">
+        <label>Booking Name</label> <br>
+        <input type="text" name="username" class="textInput">
+        <div id="name_error"></div>
+      </div>
+      <div id="email_div">
+        <label>Email</label> <br>
+        <input type="email" name="email" class="textInput">
+        <div id="email_error"></div>
+      </div>
+      <div id="guest_div">
+        <label>Guests</label> <br>
+        <input type="number" name="guest" class="numberInput">
+        <div id="guest_error"></div>
+      </div>
+      <div id="date_div">
+         <label>Reservation Date</label> <br>
+         <input type="date" name="date" class="dateInput">
+         <div id="date_error"></div>
+      </div>
+      <div>
+      <input type="submit" name="Submit" value="Submit" class="btn">
+      </div>
+     </form>
+    </div>
+<!--form script, validate name and email-->
+    <script>
+    // SELECTING ALL ELEMENTS
+    var username = document.forms['vform']['username'];
+    var email = document.forms['vform']['email'];
+    var guest = document.forms['vform']['guest'];
+    var date = document.forms['vform']['date'];
+
+    // SELECTING ALL ERROR DISPLAY ELEMENTS
+    var name_error = document.getElementById('name_error');
+    var email_error = document.getElementById('email_error');
+    var guest_error = document.getElementById('guest_error');
+    var date_error = document.getElementById('date_error');
+
+    // SETTING ALL EVENT LISTENERS
+    username.addEventListener('blur', nameVerify, true);
+    email.addEventListener('blur', emailVerify, true);
+    guest.addEventListener('blur', guestVerify, true);
+    date.addEventListener('blur', dateVerify, true);
+
+      // if requirments are met, submits form, alerts user of submission and returns user to homepage
+    username.addEventListener('blur', validForm, true);
+    email.addEventListener('blur', validForm, true);
+    guest.addEventListener('blur', validForm, true);
+    date.addEventListener('blur', validForm, true);
+
+
+
+    // validation function
+    function Validate() {
+    // validate booking name
+    if (username.value == "") {
+    username.style.border = "1px solid red";
+    document.getElementById('username_div').style.color = "red";
+    name_error.textContent = "Booking name is required";
+    username.focus();
+    return false;
+    }
+    // validate email
+    if (email.value == "") {
+    email.style.border = "1px solid red";
+    document.getElementById('email_div').style.color = "red";
+    email_error.textContent = "Email is required";
+    email.focus();
+    return false;
+    }
+    // validate guest number
+    if (guest.value == 0) {
+    guest.style.border = "1px solid red";
+    document.getElementById('guest_div').style.color = "red";
+    name_error.textContent = "Booking requires at least 1 guest";
+    guest.focus();
+    return false;
+    }
+    // validate date
+    if (date.value == "") {
+    date.style.border = "1px solid red";
+    document.getElementById('date_div').style.color = "red";
+    name_error.textContent = "Booking date is required";
+    date.focus();
+    return false;
+    }
+    }
+    // event handler functions
+    function nameVerify() {
+    if (username.value != "") {
+    username.style.border = "1px solid #5e6e66";
+    document.getElementById('username_div').style.color = "#5e6e66";
+    name_error.innerHTML = "";
+
+    return true;
+    }
+    }
+    function emailVerify() {
+    if (email.value != "") {
+    email.style.border = "1px solid #5e6e66";
+    document.getElementById('email_div').style.color = "#5e6e66";
+    email_error.innerHTML = "";
+    return true;
+    }
+  }
+  function guestVerify() {
+  if (guest.value != 0) {
+  guest.style.border = "1px solid #5e6e66";
+  document.getElementById('guest_div').style.color = "#5e6e66";
+  guest_error.innerHTML = "";
+  return true;
+  }
+}
+function dateVerify() {
+if (date.value != "") {
+date.style.border = "1px solid #5e6e66";
+document.getElementById('date_div').style.color = "#5e6e66";
+date_error.innerHTML = "";
+return true;
+}
+}
+// if all elements are inputed, alert user of sucessful booking and redirect to home page
+  function validForm() {
+    if(email.value != "" && name.value != "" && guest.value != 0 && date.value != ""){
+      alert("Reservation has been made!");
+      location.href = 'index.html';
+    }
+  }
+    </script>
+
+</body>
+
+
+<footer>
+  <p>Progetto | 2018</p>
+</footer>
+
+</html>

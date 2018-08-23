@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--MENU-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="js_external.js"></script>
+
+
+
+    <title>Progetto Menu</title>
+
+    <style>
+        /*black and white wine and cheese image*/
+        .imgBW {
+          position: absolute;
+          top: 50%;
+          left: 5%;
+          max-width:100%;
+        }
+
+        p{
+          font-family: 'Roboto Mono', monospace;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+
+            <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+
+            <nav>
+                <ul>
+                    <li> <a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="find.html">Find Us</a></li>
+
+                </ul>
+            </nav>
+        </div>
+
+
+    </header>
+
+    <!--menu button, function enables the download of menu pdf-->
+    <button id="menuButton">Download Menu</button>
+
+    <script>
+        document.getElementById("menuButton").onclick = function () {
+          var link = document.createElement('a');
+      window.open("menu.pdf", "_blank");
+      link.download = 'menu.pdf';
+      link.dispatchEvent(new MouseEvent('click'));
+        };
+    </script>
+
+
+    <!--page text within menuText div-->
+
+    <div class="menuText">
+
+        &nbsp;
+
+
+        <h2>WE CREATE DELICIOUS MEMORIES</h2>
+        &nbsp;
+
+        <p>Menu items & pricing subject to change.
+            <p>
+
+    </div>
+    <!--wine and cheese image-->
+    <div class="imgBW">
+        <img src="winecheese.png" alt="wine and cheese">
+    </div>
+    <!--footer-->
+
+    <footer>
+        <p>Progetto | 2018</p>
+    </footer>
+
+</body>
+
+</html>

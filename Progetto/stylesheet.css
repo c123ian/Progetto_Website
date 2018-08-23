@@ -1,0 +1,358 @@
+/*import Google Fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+
+/*Learn More button (index.html links to about.html)*/
+#learnButton{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 17px;
+  color: orange;
+  background-color: #525252;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+
+}
+/*Learn More button hover change opacity*/
+#learnButton:hover {
+      opacity: 0.7;
+  }
+
+
+
+/*download PDF Menu button*/
+ #menuButton {
+
+  font-size: 17px;
+  color: orange;
+  background-color: #525252;
+
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+
+
+}
+
+/*menu button hover change opacity*/
+#menuButton:hover {
+      opacity: 0.7;
+  }
+
+
+/*index.html fonts and styling*/
+
+p {
+  font-size: 20px;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 30px;
+
+
+}
+
+h1{
+  font-size: 45px;
+  text-align: center;
+  font: bold;
+  color: #525252;
+  font-family: 'Roboto Mono', monospace;
+  padding: 100px 0;
+  padding-bottom: 2%;
+
+}
+
+h2{
+  font-size: 29px;
+  text-align: center;
+  color: #d4a88c;
+  font-family: 'Roboto Mono', monospace;
+  padding: 150px 0;
+  padding-bottom: 50px;
+
+
+}
+
+#contactText.p {
+text-align: center;
+color: blue;
+
+
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+header {
+  background: orange !important;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+
+}
+/*make header opacity when scroll and hover*/
+body.scrolled header {
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+body.scrolled header:hover {
+  opacity: 1.0;
+  transition: opacity .2s;
+}
+
+/*end*/
+
+header::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  width: 7%;
+  padding: 5px 0;
+  padding-bottom: 2%;
+}
+
+nav {
+float: right;
+padding-right: 2%;
+padding-top: 3%;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/*can use text align with this method or use float*/
+nav li {
+  display: inline-block;
+  margin-left: 40px;
+  padding-top: 20px;
+
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+nav:a:hover::before {
+  color: blue;
+}
+/*cuases lines to appear above nav bar items*/
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: #444;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+
+}
+nav a:hover::before {
+  width: 100%;
+}
+/*  nav bar sticky */
+
+
+
+
+
+/*  SLIDESHOW */
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  margin: auto;
+  padding-top: 1%;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  width: auto;
+  margin-top: 15%;
+  padding: 2.5%;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.textFirst {
+  color: #fff;
+  font-size: 90px;
+  font: bold;
+  font-family: 'Roboto Mono', monospace;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 25%;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*Google Maps*/
+iframe {
+  float:left;
+  padding-top: 160px;
+  padding-left: 20px
+}
+
+.findText {
+  float: left;
+
+  position: absolute;
+  top: 60%;
+  left: 25%;
+
+
+    text-align: right;
+    font: bold;
+    color: #525252;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 45px;
+
+
+}
+
+
+ /*footer*/
+footer {
+  position: absolute;
+  bottom:0 !important;
+  width:100%;
+  height:60px;   /* Height of the footer */
+  background:#6cf;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  font-family: 'Roboto Mono', monospace;
+
+
+}
+
+/* SOCIAL MEDIA ICONS */
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 55px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Facebook */
+.fa-facebook {
+    background: orange;
+    color: white;
+    margin-left: 46%;
+
+}
+
+/* Twitter */
+.fa-twitter {
+    background: orange;
+    color: white;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+}
